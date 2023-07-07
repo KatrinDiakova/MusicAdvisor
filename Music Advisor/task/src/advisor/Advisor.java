@@ -28,9 +28,7 @@ public class Advisor {
     }
 
     private void processCommand(String command) {
-        if (!isAuthorized) {
-            System.out.println("Please, provide access for application.");
-        } else {
+        if (isAuthorized) {
             if (command.equals("new")) {
                 System.out.println("---NEW RELEASES---");
             } else if (command.equals("featured")) {
@@ -41,6 +39,8 @@ public class Advisor {
                 String playlistName = getPlaylistName(command);
                 System.out.printf("---%s PLAYLISTS---", playlistName.toUpperCase());
             }
+        } else {
+            System.out.println("Please, provide access for application.");
         }
     }
 
